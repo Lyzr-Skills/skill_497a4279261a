@@ -1,0 +1,41 @@
+{
+  "skill_name": "florida-material-risk",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I manage Florida DC. Which materials have significant forecast inventory or safety stock issues over the next 26 model weeks?",
+      "expected_output": "Defaults to Scenario 1 without asking, resolves model weeks, checks actual inventory/safety where available, distinguishes unmet demand and tracks complete coverage.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Using the full attached HPE BOM PDF, which finished goods are affected by the material issues we just found in Florida?",
+      "expected_output": "Uses prior-read material shortlist without full forecast refresh, reads entire BOM, exact matches only, makes no unsupported build-unit claim.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "For the four flagged Florida materials in Scenario 1, check all other sites and pick the best transfer source, ideally the site with the most excess in the shortage week.",
+      "expected_output": "Rechecks relevant weeks, pages all donor sites, separates largest modeled excess from transferable/fastest feasible stock; does not run PO search.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Without changing any orders, can we pull forward committed open purchase orders for those Florida materials by their first risk week?",
+      "expected_output": "Finds matched open committed PO lines with dates and quantities, flags stale dated lines, gives qualified expedite checks rather than changing orders; does not run donor search.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Give me a full material-to-finished-good risk report for all stock sites for the next model year with transfer and PO options.",
+      "expected_output": "Defaults to Scenario 1 without asking, runs all branches for full report, tracks coverage and data gaps.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Use Scenario 2 for Florida instead, just check the first four weeks for inventory below zero.",
+      "expected_output": "Explicit Scenario 2 overrides Scenario 1 default, no PO/BOM/donor analysis, checks 4 model weeks only.",
+      "files": []
+    }
+  ]
+}
